@@ -2,53 +2,44 @@
 
 function countArray(inputArray) {
   return inputArray.length;
-
 }
 
 
 var highStressTitle = "High Stress Coping Methods"
-var highStressBody = "High Stress Coping Methods"
+var highStressBody = "Xanax. Counseling. Go to sleep. Quit your job. Smoke some f'ing weed. "
 var lowStressTitle = "Low Stress Coping Methods"
-var lowStressBody = "Low Stress Coping Methods"
+var lowStressBody = "Take a walk. Pet your cat. Take a power nap. Eat a snack (snickers). Smoke some f'ing weed. "
+var healthyTitle = "You are healthy!"
+var healthyBody = "Do normal things!"
 
-function generateResults(inputArray) {
-  if (countArray(inputArray) >= 4) {
-    displayResults(highStressTitle, highStressBody);
+function generateResults(inputArray, modifier) {
+  if (countArray(inputArray) + modifier >= 5) {
     //display high stress results
+    displayResults(highStressTitle, highStressBody);
 
-  } else if (countArray(inputArray) >= 1) {
-    displayResults(lowStressTitle, lowStressBody);
+  } else if (countArray(inputArray) + modifier >= 2) {
     //display low stress options
+    displayResults(lowStressTitle, lowStressBody);
   } else {
     //you are healthy
+    displayResults(healthyTitle, healthyBody);
   }
 }
 
 // front-end
-
-function displayResults(arg1, arg2) {
-  $("#results").slideDown();
-  $("#methods div h4").text(arg1);
-  $("#panel-body").text(arg2);
+function displayResults(title, body) {
+  $("#results").toggle();
+  $("#methods div h5").text(title);
+  $("#modal-body p").text(body);
 };
 
-
-// function displayHighStressResults() {
-//   $("#results").slideDown();
-//   $("#methods div h4").text("High Stress Coping Methods");
-//   $("#panel-body").text("You should meditate and pet a cat");
-// };
-//
-// function displayLowStressResults() {
-//   $("#results").slideDown();
-//   $("#methods div h4").text("Low Stress Coping Methods");
-//   $("#panel-body").text("You should meditate.");
-// };
 
 
 $(function() {
   $("#input").submit(function(event) {
     event.preventDefault();
+    var modifier = parseInt($("#paranoia").val());
+    console.log(modifier);
     var boxesChecked = [];
     $("input:checkbox[name=warning-signs]:checked").each(function() {
       boxesChecked.push($(this).val());
@@ -56,10 +47,13 @@ $(function() {
     $("input:checkbox[name=health-symptoms]:checked").each(function() {
       boxesChecked.push($(this).val());
     })
-    generateResults(boxesChecked);
+    generateResults(boxesChecked, modifier);
 
   });
 
+  $("#x").click(function closeModal(){
+    $("#results").toggle();
+  });
 
 
 });

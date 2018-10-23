@@ -5,3 +5,11 @@ body {
 #results {
   display: none;
 }
+
+li {
+  list-style-type: none;
+}
+
+input {
+  margin: 4px;
+}

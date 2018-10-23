@@ -17,24 +17,49 @@
       <h1>Health Quiz</h1>
     </div>
 
+    <div class="modal" id="results" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div id="methods" class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button id="x" type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div id="modal-body" class="modal-body">
+            <p></p>
+          </div>
 
-    <div id="results" class="row">
+        </div>
+      </div>
+    </div>
+
+    <!-- <div id="results" class="row">
       <div class="col-md-12">
 
         <div class="col-md-12">
           <div id="methods" class="panel panel-default">
             <div class="panel-heading">
-              <h4 class="panel-title">dsfads</h4>
+              <h4 class="panel-title"></h4>
             </div>
             <div id="panel-body" class="panel-body">
-              sdfasd
             </div>
           </div>
         </div>
       </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <form class="form-group">
+          <select class="form-control" id="paranoia">
+            <option value="1">Im cooler than a cucumber</option>
+            <option value="2">Meh</option>
+            <option value="4">Tin hats? ...the government is after me and the aliens will return</option>
+          </select>
+        </form>
+      </div>
     </div>
-
-
 
     <div class="row">
       <form id="input" class="form-group" action="index.html" method="post">
@@ -43,17 +68,17 @@
           <div class="well">
 
             <h3>Warning Signs</h3>
-            <div class="control-group">
+            <div class="checkbox">
               <label for="">
                 <input type="checkbox" name="warning-signs" value="sleep">Loss of Sleep
               </label>
             </div>
-            <div class="control-group">
+            <div class="checkbox">
               <label for="">
                 <input type="checkbox" name="warning-signs" value="overwhelmed">Feeling Overwhelmed
               </label>
             </div>
-            <div class="control-group">
+            <div class="checkbox">
               <label for="">
                 <input type="checkbox" name="warning-signs" value="eating">Poor Eating Habits
               </label>
@@ -66,17 +91,17 @@
           <div class="well">
 
             <h3>Health Symptoms</h3>
-            <div class="control-group">
+            <div class="checkbox">
               <label for="">
                 <input type="checkbox" name="health-symptoms" value="pressure">High Blood Pressure
               </label>
             </div>
-            <div class="control-group">
+            <div class="checkbox">
               <label for="">
                 <input type="checkbox" name="health-symptoms" value="anxiety">Anxiety
               </label>
             </div>
-            <div class="control-group">
+            <div class="checkbox">
               <label for="">
                 <input type="checkbox" name="health-symptoms" value="pain">Back Pain
               </label>
